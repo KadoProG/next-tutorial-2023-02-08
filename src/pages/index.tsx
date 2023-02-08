@@ -13,8 +13,8 @@ const TextHello = styled.div`
 
 const TextCount = styled.p`
   background: rgb(240,240,240);
-  width: 200px;
-  height: 200px;
+  width: 170px;
+  height: 170px;
   margin: 0;
   margin-left: 10px;
   display: flex; 
@@ -26,14 +26,39 @@ const TextCount = styled.p`
 const BtnUI = styled.button`
   background: rgb(240,240,240);
   border: none;
-  width: 400px;
-  height: 200px;
+  width: 340px;
+  height: 170px;
   font-size: 20px;
-  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer; 
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 680px;
+    height: 680px;
+    background: rgb(200,200,200);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.4s;
+    z-index: -1;
+  }
+
+  &:hover {
+    &::before {
+      transform: scale(1);
+    }
+  }
 `;
 
 const DivFlex = styled.div`
   display: flex;
+  flex-wrap: wrap;
 `;
 
 const Home: FC = () => {
